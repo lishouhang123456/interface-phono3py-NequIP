@@ -41,6 +41,10 @@ done
 # extract NequIP forces and transform it to Quantum Espresso format
 matlab ext_xyz
 
+# extract the third order force constants
+phono3py --qe --cf3 data/forces_population1_{1..1000}.dat
+Or
+phono3py -c phono3py_disp.yaml --qe --cf3 data/forces_population1_{1..1000}.dat
 
-
-
+# Run Phono3py and calculate the thermal conductivity
+phono3py SET1 --lbte --isotope --wigner --mesh 8 8 8 --pinv-solver 2 --ts 300 > out.txt 2>&1
