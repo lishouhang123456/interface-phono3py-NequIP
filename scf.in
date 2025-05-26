@@ -1,0 +1,30 @@
+ &control
+    calculation     = 'scf'
+    pseudo_dir      = '~/pp/nc-sr-05_pbe_standard_upf'
+    tprnfor         = .true.
+    tstress         = .true.
+    disk_io         = 'none'
+    outdir          = 'wfc'
+ /
+ &system
+    ibrav           = 0
+    nat             = 2
+    ntyp            = 1
+    ecutwfc         = 80
+    occupations     = 'fixed'
+ /
+ &electrons
+    diagonalization = 'david'
+    mixing_beta     = 0.7
+    conv_thr        = 1.0d-10
+ /
+ATOMIC_SPECIES
+  Si   28.085    Si.upf
+ATOMIC_POSITIONS angstrom
+Si  0.0000000000136687 0.0000000000129581 0.0000000000020758
+Si  1.3783861849536767 1.3783861849538765 1.3783861849571297
+CELL_PARAMETERS angstrom
+-0.0000000000210435 2.7567723699365629 2.7567723699365683
+2.7567723699375728 -0.0000000000220488 2.7567723699375715
+2.7567723699528512 2.7567723699528472 -0.0000000000373246
+K_POINTS gamma
