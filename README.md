@@ -18,6 +18,10 @@ phono3py --qe --rd **1000** --dim 4 4 4 --pa auto -c scf.in
 
 matlab gen_disp.m
 
+# Replace the phono3py displacement in file phono3py_disp.yaml by the SSCHA displacement
+
+replace_ph3_with_sscha_disp.sh
+
 # Run NequIP
 num_config_perfile=500
 num_atm=128
@@ -33,5 +37,10 @@ sed -i "/dataset_file_name/c\\dataset_file_name: ${tmp_file_name}" nn_train.yaml
 out_file=out$i.xyz
 nequip-evaluate --model Si-bulk.pth --dataset-config nn_train.yaml --batch-size 3 --output $out_file 
 done
+
+# extract NequIP forces and transform it to Quantum Espresso format
+matlab ext_xyz
+
+
 
 
