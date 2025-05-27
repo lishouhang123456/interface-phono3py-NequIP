@@ -46,5 +46,8 @@ phono3py --qe --cf3 data/forces_population1_{1..1000}.dat
 Or
 phono3py -c phono3py_disp.yaml --qe --cf3 data/forces_population1_{1..1000}.dat
 
+# change the FORCE CONTANTS to the hdf5 format
+phono3py --symfc -v
+
 # Run Phono3py and calculate the thermal conductivity
 phono3py SET1 --lbte --isotope --wigner --mesh 8 8 8 --pinv-solver 2 --ts 300 > out.txt 2>&1
