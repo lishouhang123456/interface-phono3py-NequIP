@@ -5,10 +5,10 @@ When we calculate the 3rd-order FCs, we use NequIP to generate the forces.
 INPUT: SSCHA dynamical matrices
 
 # Generate POSCAR file
-phono3py gen_poscar.py
+python gen_poscar.py
 
 # Generate random supercell file
-phono3py gen_config.py
+python gen_config.py
 
 # Generate phono3py_disp.yaml
 phono3py --qe --rd **1000** --dim 4 4 4 --pa auto -c scf.in
@@ -21,6 +21,9 @@ matlab gen_disp.m
 # Replace the phono3py displacement in file phono3py_disp.yaml by the SSCHA displacement
 
 replace_ph3_with_sscha_disp.sh
+
+# Generate supercell in SSCHA format
+python gen_supercell.py
 
 # Run NequIP
 num_config_perfile=500
